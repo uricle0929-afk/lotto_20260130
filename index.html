@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>로또 번호 추천기</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="logo">NETFLIX</div>
+        <nav class="top-actions">
+          <button id="clearHistoryBtn" type="button" class="ghost small">
+            기록 지우기
+          </button>
+        </nav>
+      </header>
+
+      <main class="container">
+        <section class="hero">
+          <div class="hero-content">
+            <p class="hero-label">오늘의 추천</p>
+            <h1>로또 번호 랜덤 추천</h1>
+            <p class="subtitle">
+              1~45 사이에서 6개 + 보너스 1개, 총 5게임을 추천해요.
+            </p>
+            <div class="actions">
+              <button id="generateBtn" type="button" class="primary">
+                번호 추천
+              </button>
+              <button id="shuffleBtn" type="button" class="ghost">
+                다시 섞기
+              </button>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="numbers" id="numbers" aria-live="polite">
+              <span class="placeholder">번호를 생성해 주세요</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="meta">
+            <label class="checkbox">
+              <input type="checkbox" id="useAnalysis" checked />
+              분석 기반 추천
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" id="uniqueOnly" checked />
+              중복 없이 뽑기
+            </label>
+            <label class="checkbox">
+              <input type="checkbox" id="sortAsc" checked />
+              오름차순 정렬
+            </label>
+            <label class="select">
+              분석 범위
+              <select id="analysisRange">
+                <option value="100">최근 100회</option>
+                <option value="200" selected>최근 200회</option>
+                <option value="500">최근 500회</option>
+                <option value="1000">최근 1000회</option>
+              </select>
+            </label>
+          </div>
+          <p id="analysisStatus" class="status">분석 대기 중</p>
+        </section>
+
+        <section class="panel history" aria-live="polite">
+          <div class="history-header">
+            <h2>추천 기록</h2>
+          </div>
+          <ul id="historyList" class="history-list">
+            <li class="placeholder">아직 기록이 없어요.</li>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
